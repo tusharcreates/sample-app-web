@@ -1,3 +1,5 @@
+//This is used to host the website on the 9999 local host port
+
 const webpack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server');
 const webpackConfig = require('./webpack.config.dev');

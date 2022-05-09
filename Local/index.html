@@ -3,55 +3,19 @@
 <head>
     <title>Zoom WebSDK</title>
     <meta charset="utf-8" />
+    <!-- This is css provided by the zoom -->
     <link type="text/css" rel="stylesheet" href="node_modules/@zoomus/websdk/dist/css/bootstrap.css" />
     <link type="text/css" rel="stylesheet" href="node_modules/@zoomus/websdk/dist/css/react-select.css" />
-
+    <!-- this is meta for telphone number detection -->
     <meta name="format-detection" content="telephone=no">
+    <!-- this is meta for the viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- Have added to link the CSS -->
+    <link rel="stylesheet" href="./public/index.css">
 </head>
 
 <body>
-    <style>
-        .sdk-select {
-            height: 34px;
-            border-radius: 4px;
-        }
-		
-		.websdktest button {
-            float: right;
-            margin-left: 5px;
-        }
-        #nav-tool {
-            margin-bottom: 0px;
-        }
-
-        #show-test-tool {
-            position: absolute;
-            top: 100px;
-            left: 0;
-            display: block;
-            z-index: 99999;        
-        }
-        #display_name {
-            width: 250px;
-        }
-        
-
-        #websdk-iframe {
-            width: 700px;
-            height: 500px;
-            border: 1px;
-            border-color: red;
-            border-style: dashed;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            left: 50%;
-            margin: 0;
-        }
-    </style>
-
+    <!-- lot of inline css and form is not used to submit the data -->
     <nav id="nav-tool" class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -86,6 +50,8 @@
                             <option value=1>China</option>
                         </select>
                     </div>
+
+                    <!-- Dropdown menu -->
                     <div class="form-group">
                         <select id="meeting_lang" class="sdk-select">
                             <option value="en-US">English</option>
@@ -104,8 +70,12 @@
                     </div>
 
                     <input type="hidden" value="" id="copy_link_value"/>
+                    <!-- They have written a javascript where the join 
+                        button will submit the required details form the ID -->
                     <button type="submit" class="btn btn-primary" id="join_meeting">Join</button>
                     <button type="submit" class="btn btn-primary" id="clear_all">Clear</button>
+
+                    <!-- This copies the joining link. -->
                     <button type="button" link="" onclick="window.copyJoinLink('#copy_join_link')" class="btn btn-primary" id="copy_join_link">Copy Direct join link</button>
            
 
@@ -119,6 +89,7 @@
         <button type="submit" class="btn btn-primary" id="show-test-tool-btn" title="show or hide top test tool">Show</button>
     </div>
     <script>
+        // This is to hide and un-hide the top nav section (Toggle)
         document.getElementById('show-test-tool-btn').addEventListener("click", function(e){
             var textContent = e.target.textContent;
             if (textContent === 'Show') {
@@ -131,15 +102,20 @@
             }
         })
     </script>
+    <!-- This is modules for react -->
     <script src="node_modules/react/umd/react.production.min.js"></script>
     <script src="node_modules/react-dom/umd/react-dom.production.min.js"></script>
     <script src="node_modules/redux/dist/redux.min.js"></script>
     <script src="node_modules/redux-thunk/dist/redux-thunk.min.js"></script>
     <script src="node_modules/lodash/lodash.min.js"></script>
 
+    <!-- this to import the tool.js file. -->
+    <!-- this allows the index.js to use the file -->
     <script src="./js/tool.js"></script>
+
+    <!-- This will load the java script of the specified .js file. like: ./static/[--name--].min.js -->
+    <!-- can find the required code in the webpack.config.dev.js line 20 -->
+    the 
     <script src="./static/index.min.js"></script>
 
 </body>
-
-</html>

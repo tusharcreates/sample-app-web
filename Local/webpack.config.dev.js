@@ -14,6 +14,9 @@ module.exports = {
     index: ['./js/index.js'],
     meeting: ['./js/meeting.js']
   },
+  // this is the part were the requried file is parsed.
+  //the filename is integrated into the /static/[name].min.js
+  // here name is the required file
   output: {
     path: path.resolve(__dirname, '/static'),
     publicPath: '/static',
